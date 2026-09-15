@@ -1,0 +1,253 @@
+version: 1
+models:
+  stg_customers:
+    layer: staging
+    grain: customer_id
+    key:
+    - customer_id
+    parents:
+    - raw.customers
+  stg_orders:
+    layer: staging
+    grain: order_id
+    key:
+    - order_id
+    parents:
+    - raw.orders
+  stg_order_items:
+    layer: staging
+    grain: order_id + order_item_id
+    key:
+    - order_id
+    - order_item_id
+    parents:
+    - raw.order_items
+  stg_products:
+    layer: staging
+    grain: product_id
+    key:
+    - product_id
+    parents:
+    - raw.products
+  stg_sellers:
+    layer: staging
+    grain: seller_id
+    key:
+    - seller_id
+    parents:
+    - raw.sellers
+  stg_payments:
+    layer: staging
+    grain: order_id + payment_sequential
+    key:
+    - order_id
+    - payment_sequential
+    parents:
+    - raw.payments
+  stg_reviews:
+    layer: staging
+    grain: latest resolved review per order
+    key:
+    - order_id
+    parents:
+    - raw.reviews
+  stg_geolocation:
+    layer: staging
+    grain: postal prefix after aggregation
+    key:
+    - geolocation_zip_code_prefix
+    parents:
+    - raw.geolocation
+  stg_product_category_translation:
+    layer: staging
+    grain: product_category_name
+    key:
+    - product_category_name
+    parents:
+    - raw.product_category_translation
+  int_orders_enriched:
+    layer: intermediate
+    grain: order
+    key:
+    - order_id
+    parents:
+    - stg_orders
+    - stg_customers
+    - stg_order_items
+    - stg_payments
+    - stg_reviews
+  int_order_items_enriched:
+    layer: intermediate
+    grain: order item
+    key:
+    - order_id
+    - order_item_id
+    parents:
+    - stg_order_items
+    - stg_orders
+    - stg_products
+    - stg_product_category_translation
+  int_customer_orders:
+    layer: intermediate
+    grain: person and order
+    key:
+    - order_id
+    parents:
+    - int_orders_enriched
+  int_product_orders:
+    layer: intermediate
+    grain: product and order
+    key:
+    - product_id
+    - order_id
+    parents:
+    - int_order_items_enriched
+  int_seller_performance:
+    layer: intermediate
+    grain: seller and purchase month
+    key:
+    - seller_id
+    - purchase_month
+    parents:
+    - int_order_items_enriched
+    - stg_sellers
+  int_delivery_performance:
+    layer: intermediate
+    grain: delivered order
+    key:
+    - order_id
+    parents:
+    - int_orders_enriched
+  dim_customer:
+    layer: marts
+    grain: person
+    key:
+    - customer_unique_id
+    parents:
+    - int_customer_orders
+  dim_product:
+    layer: marts
+    grain: product
+    key:
+    - product_id
+    parents:
+    - stg_products
+    - stg_product_category_translation
+  dim_seller:
+    layer: marts
+    grain: seller
+    key:
+    - seller_id
+    parents:
+    - stg_sellers
+  dim_date:
+    layer: marts
+    grain: calendar date
+    key:
+    - date_day
+    parents:
+    - stg_orders
+  fct_orders:
+    layer: marts
+    grain: order
+    key:
+    - order_id
+    parents:
+    - int_orders_enriched
+    - dim_customer
+    - dim_date
+  fct_order_items:
+    layer: marts
+    grain: order item
+    key:
+    - order_id
+    - order_item_id
+    parents:
+    - int_order_items_enriched
+    - dim_product
+    - dim_seller
+    - dim_date
+  fct_payments:
+    layer: marts
+    grain: payment component
+    key:
+    - order_id
+    - payment_sequential
+    parents:
+    - stg_payments
+    - fct_orders
+  mart_daily_sales:
+    layer: marts
+    grain: purchase date
+    key:
+    - purchase_date
+    parents:
+    - fct_orders
+    - dim_date
+  mart_monthly_sales:
+    layer: marts
+    grain: purchase month
+    key:
+    - purchase_month
+    parents:
+    - mart_daily_sales
+  mart_customer_metrics:
+    layer: marts
+    grain: person
+    key:
+    - customer_unique_id
+    parents:
+    - fct_orders
+    - dim_customer
+  mart_customer_cohorts:
+    layer: marts
+    grain: cohort month and activity month
+    key:
+    - cohort_month
+    - activity_month
+    parents:
+    - fct_orders
+    - dim_date
+  mart_product_performance:
+    layer: marts
+    grain: product and purchase month
+    key:
+    - product_id
+    - purchase_month
+    parents:
+    - fct_order_items
+    - dim_product
+  mart_category_performance:
+    layer: marts
+    grain: category and purchase month
+    key:
+    - category
+    - purchase_month
+    parents:
+    - fct_order_items
+    - dim_product
+  mart_seller_performance:
+    layer: marts
+    grain: seller and purchase month
+    key:
+    - seller_id
+    - purchase_month
+    parents:
+    - fct_order_items
+    - dim_seller
+  mart_delivery_performance:
+    layer: marts
+    grain: purchase month and customer state
+    key:
+    - purchase_month
+    - customer_state
+    parents:
+    - fct_orders
+  mart_review_metrics:
+    layer: marts
+    grain: purchase month and review score
+    key:
+    - purchase_month
+    - review_score
+    parents:
+    - fct_orders

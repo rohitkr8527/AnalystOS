@@ -1,0 +1,42 @@
+roles:
+  viewer: [catalog.read, metric.read, evidence.read]
+  analyst: [catalog.read, metric.read, evidence.read, analysis.start, sql.read, quality.read, statistics.run, visualization.run, dbt.inspect]
+  approver: [catalog.read, metric.read, evidence.read, approval.decide]
+automatic:
+  - catalog.read
+  - metric.read
+  - evidence.read
+  - sql.read
+  - quality.read
+  - statistics.run
+  - visualization.run
+  - report.create
+  - dbt.inspect
+  - dbt.compile_isolated
+  - dbt.test_isolated
+approval_required:
+  - dbt.model.create
+  - dbt.model.modify
+  - dbt.run_model
+  - metric.modify
+  - github.create_branch
+  - github.write_file
+  - github.commit
+  - github.create_pull_request
+  - operation.expensive
+denied:
+  - warehouse.insert
+  - warehouse.update
+  - warehouse.delete
+  - warehouse.ddl
+  - permissions.modify
+  - secrets.unrestricted_read
+  - github.merge
+  - code.arbitrary_execute
+approval:
+  expires_after_hours: 24
+  bind_to: [actor_id, run_id, operation, resource, content_sha256]
+  changed_content_requires_new_approval: true
+  agent_can_approve: false
+  retry_requires_idempotency_key: true
+

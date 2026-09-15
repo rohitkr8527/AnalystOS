@@ -1,0 +1,35 @@
+name: analystos
+services:
+  postgres:
+    image: postgres:17.11
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run python scripts/create_local_secrets.py}
+      APP_DATABASE_PASSWORD: ${APP_DATABASE_PASSWORD:?Missing application database secret}
+      WAREHOUSE_PASSWORD: ${WAREHOUSE_PASSWORD:?Missing reader secret}
+      WAREHOUSE_LOADER_PASSWORD: ${WAREHOUSE_LOADER_PASSWORD:?Missing loader secret}
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/docker/init-databases.sh:/docker-entrypoint-initdb.d/01-databases.sh:ro
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U postgres -d postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+  redis:
+    image: redis:7.4
+    ports:
+      - '127.0.0.1:6379:6379'
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+volumes:
+  postgres_data:
+

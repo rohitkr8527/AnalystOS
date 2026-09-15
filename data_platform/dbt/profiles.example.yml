@@ -1,0 +1,13 @@
+analystos:
+  target: local
+  outputs:
+    local:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: analystos_loader
+      password: "{{ env_var('WAREHOUSE_LOADER_PASSWORD') }}"
+      dbname: demo_warehouse
+      schema: analytics_dev
+      threads: 4
+

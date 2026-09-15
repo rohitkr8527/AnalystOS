@@ -1,0 +1,3204 @@
+[
+  {
+    "id": "E001",
+    "category": "aggregation",
+    "question": "What is total revenue for all three fixture months?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(item_price) AS value FROM fct_order_items WHERE is_valid",
+    "expected_result": {
+      "rows": [
+        [
+          989.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E002",
+    "category": "aggregation",
+    "question": "What is order count for all three fixture months?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COUNT(DISTINCT order_id) AS value FROM fct_orders WHERE is_valid",
+    "expected_result": {
+      "rows": [
+        [
+          21
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E003",
+    "category": "aggregation",
+    "question": "What is average order value for all three fixture months?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "average_order_value"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(revenue)/COUNT(*) AS value FROM fct_orders WHERE is_valid",
+    "expected_result": {
+      "rows": [
+        [
+          47.095238
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E004",
+    "category": "aggregation",
+    "question": "What is total freight for all three fixture months?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "freight"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(freight_value) AS value FROM fct_order_items WHERE is_valid",
+    "expected_result": {
+      "rows": [
+        [
+          60.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E005",
+    "category": "aggregation",
+    "question": "What is total payment value for all three fixture months?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "payment_value"
+    ],
+    "expected_tables": [
+      "fct_payments"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(payment_value) AS value FROM fct_payments WHERE is_valid",
+    "expected_result": {
+      "rows": [
+        [
+          1049.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E006",
+    "category": "aggregation",
+    "question": "What is total revenue for 2018-01?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(item_price) AS value FROM fct_order_items WHERE is_valid AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          430.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E007",
+    "category": "aggregation",
+    "question": "What is order count for 2018-01?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COUNT(DISTINCT order_id) AS value FROM fct_orders WHERE is_valid AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          7
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E008",
+    "category": "aggregation",
+    "question": "What is average order value for 2018-01?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "average_order_value"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(revenue)/COUNT(*) AS value FROM fct_orders WHERE is_valid AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          61.428571
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E009",
+    "category": "aggregation",
+    "question": "What is total freight for 2018-01?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "freight"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(freight_value) AS value FROM fct_order_items WHERE is_valid AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          20.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E010",
+    "category": "aggregation",
+    "question": "What is total payment value for 2018-01?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "payment_value"
+    ],
+    "expected_tables": [
+      "fct_payments"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(payment_value) AS value FROM fct_payments WHERE is_valid AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          450.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E011",
+    "category": "aggregation",
+    "question": "What is total revenue for 2018-02?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(item_price) AS value FROM fct_order_items WHERE is_valid AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          215.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E012",
+    "category": "aggregation",
+    "question": "What is order count for 2018-02?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COUNT(DISTINCT order_id) AS value FROM fct_orders WHERE is_valid AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          7
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E013",
+    "category": "aggregation",
+    "question": "What is average order value for 2018-02?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "average_order_value"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(revenue)/COUNT(*) AS value FROM fct_orders WHERE is_valid AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          30.714286
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E014",
+    "category": "aggregation",
+    "question": "What is total freight for 2018-02?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "freight"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(freight_value) AS value FROM fct_order_items WHERE is_valid AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          20.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E015",
+    "category": "aggregation",
+    "question": "What is total payment value for 2018-02?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "payment_value"
+    ],
+    "expected_tables": [
+      "fct_payments"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(payment_value) AS value FROM fct_payments WHERE is_valid AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          235.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E016",
+    "category": "aggregation",
+    "question": "What is total revenue for 2018-03?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(item_price) AS value FROM fct_order_items WHERE is_valid AND purchase_month = '2018-03'",
+    "expected_result": {
+      "rows": [
+        [
+          344.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E017",
+    "category": "aggregation",
+    "question": "What is order count for 2018-03?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COUNT(DISTINCT order_id) AS value FROM fct_orders WHERE is_valid AND purchase_month = '2018-03'",
+    "expected_result": {
+      "rows": [
+        [
+          7
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E018",
+    "category": "aggregation",
+    "question": "What is average order value for 2018-03?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "average_order_value"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(revenue)/COUNT(*) AS value FROM fct_orders WHERE is_valid AND purchase_month = '2018-03'",
+    "expected_result": {
+      "rows": [
+        [
+          49.142857
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E019",
+    "category": "aggregation",
+    "question": "What is total freight for 2018-03?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "freight"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(freight_value) AS value FROM fct_order_items WHERE is_valid AND purchase_month = '2018-03'",
+    "expected_result": {
+      "rows": [
+        [
+          20.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E020",
+    "category": "aggregation",
+    "question": "What is total payment value for 2018-03?",
+    "difficulty": "easy",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "payment_value"
+    ],
+    "expected_tables": [
+      "fct_payments"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(payment_value) AS value FROM fct_payments WHERE is_valid AND purchase_month = '2018-03'",
+    "expected_result": {
+      "rows": [
+        [
+          364.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E021",
+    "category": "filtering_grouping",
+    "question": "What was revenue for category books in 2018-01?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(item_price), 0) AS revenue FROM fct_order_items WHERE is_valid AND category = 'books' AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          120.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E022",
+    "category": "filtering_grouping",
+    "question": "What was revenue for category books in 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(item_price), 0) AS revenue FROM fct_order_items WHERE is_valid AND category = 'books' AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          60.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E023",
+    "category": "filtering_grouping",
+    "question": "What was revenue for category electronics in 2018-01?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(item_price), 0) AS revenue FROM fct_order_items WHERE is_valid AND category = 'electronics' AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          190.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E024",
+    "category": "filtering_grouping",
+    "question": "What was revenue for category electronics in 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(item_price), 0) AS revenue FROM fct_order_items WHERE is_valid AND category = 'electronics' AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          95.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E025",
+    "category": "filtering_grouping",
+    "question": "What was revenue for category home in 2018-01?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(item_price), 0) AS revenue FROM fct_order_items WHERE is_valid AND category = 'home' AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          120.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E026",
+    "category": "filtering_grouping",
+    "question": "What was revenue for category home in 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(item_price), 0) AS revenue FROM fct_order_items WHERE is_valid AND category = 'home' AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          60.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E027",
+    "category": "filtering_grouping",
+    "question": "What was revenue for customer_state SP in 2018-01?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(revenue), 0) AS revenue FROM fct_orders WHERE is_valid AND customer_state = 'SP' AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          170.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E028",
+    "category": "filtering_grouping",
+    "question": "What was revenue for customer_state SP in 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(revenue), 0) AS revenue FROM fct_orders WHERE is_valid AND customer_state = 'SP' AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          85.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E029",
+    "category": "filtering_grouping",
+    "question": "What was revenue for customer_state RJ in 2018-01?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(revenue), 0) AS revenue FROM fct_orders WHERE is_valid AND customer_state = 'RJ' AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          100.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E030",
+    "category": "filtering_grouping",
+    "question": "What was revenue for customer_state RJ in 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(revenue), 0) AS revenue FROM fct_orders WHERE is_valid AND customer_state = 'RJ' AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          50.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E031",
+    "category": "filtering_grouping",
+    "question": "What was revenue for customer_state MG in 2018-01?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(revenue), 0) AS revenue FROM fct_orders WHERE is_valid AND customer_state = 'MG' AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          160.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E032",
+    "category": "filtering_grouping",
+    "question": "What was revenue for customer_state MG in 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(revenue), 0) AS revenue FROM fct_orders WHERE is_valid AND customer_state = 'MG' AND purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          80.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E033",
+    "category": "filtering_grouping",
+    "question": "Which were the top five categories by revenue in 2018-01?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "mart_category_performance"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT category, revenue FROM mart_category_performance WHERE purchase_month = '2018-01' ORDER BY revenue DESC, category LIMIT 5",
+    "expected_result": {
+      "rows": [
+        [
+          "electronics",
+          190.0
+        ],
+        [
+          "books",
+          120.0
+        ],
+        [
+          "home",
+          120.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E034",
+    "category": "filtering_grouping",
+    "question": "Which were the top five categories by revenue in 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "mart_category_performance"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT category, revenue FROM mart_category_performance WHERE purchase_month = '2018-02' ORDER BY revenue DESC, category LIMIT 5",
+    "expected_result": {
+      "rows": [
+        [
+          "electronics",
+          95.0
+        ],
+        [
+          "books",
+          60.0
+        ],
+        [
+          "home",
+          60.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E035",
+    "category": "filtering_grouping",
+    "question": "Which were the top five categories by revenue in 2018-03?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "mart_category_performance"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT category, revenue FROM mart_category_performance WHERE purchase_month = '2018-03' ORDER BY revenue DESC, category LIMIT 5",
+    "expected_result": {
+      "rows": [
+        [
+          "electronics",
+          152.0
+        ],
+        [
+          "books",
+          96.0
+        ],
+        [
+          "home",
+          96.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E036",
+    "category": "filtering_grouping",
+    "question": "How many valid orders came from SP across the fixture period?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COUNT(*) AS orders FROM fct_orders WHERE is_valid AND customer_state = 'SP'",
+    "expected_result": {
+      "rows": [
+        [
+          9
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E037",
+    "category": "filtering_grouping",
+    "question": "How many valid orders came from RJ across the fixture period?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COUNT(*) AS orders FROM fct_orders WHERE is_valid AND customer_state = 'RJ'",
+    "expected_result": {
+      "rows": [
+        [
+          6
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E038",
+    "category": "filtering_grouping",
+    "question": "How many valid orders came from MG across the fixture period?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COUNT(*) AS orders FROM fct_orders WHERE is_valid AND customer_state = 'MG'",
+    "expected_result": {
+      "rows": [
+        [
+          6
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E039",
+    "category": "filtering_grouping",
+    "question": "How much revenue came from January orders worth at least BRL 50?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(revenue) FROM fct_orders WHERE is_valid AND purchase_month = '2018-01' AND revenue >= 50",
+    "expected_result": {
+      "rows": [
+        [
+          390.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E040",
+    "category": "filtering_grouping",
+    "question": "What is revenue in April 2018 when there are no orders?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT COALESCE(SUM(item_price), 0) FROM fct_order_items WHERE is_valid AND purchase_month = '2018-04'",
+    "expected_result": {
+      "rows": [
+        [
+          0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E041",
+    "category": "joins",
+    "question": "Show seller state revenue for 2018-01 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "dim_seller",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT s.seller_state, SUM(i.item_price) FROM fct_order_items i JOIN dim_seller s ON i.seller_id = s.seller_id WHERE i.is_valid AND i.purchase_month = '2018-01' GROUP BY s.seller_state ORDER BY s.seller_state",
+    "expected_result": {
+      "rows": [
+        [
+          "MG",
+          160.0
+        ],
+        [
+          "RJ",
+          100.0
+        ],
+        [
+          "SP",
+          170.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E042",
+    "category": "joins",
+    "question": "Show customer state item revenue for 2018-01 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items",
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT o.customer_state, SUM(i.item_price) FROM fct_order_items i JOIN fct_orders o ON i.order_id = o.order_id WHERE i.is_valid AND i.purchase_month = '2018-01' GROUP BY o.customer_state ORDER BY o.customer_state",
+    "expected_result": {
+      "rows": [
+        [
+          "MG",
+          160.0
+        ],
+        [
+          "RJ",
+          100.0
+        ],
+        [
+          "SP",
+          170.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E043",
+    "category": "joins",
+    "question": "Show category distinct order counts for 2018-01 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "dim_product",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT p.category, COUNT(DISTINCT i.order_id) FROM fct_order_items i JOIN dim_product p ON i.product_id = p.product_id WHERE i.is_valid AND i.purchase_month = '2018-01' GROUP BY p.category ORDER BY p.category",
+    "expected_result": {
+      "rows": [
+        [
+          "books",
+          3
+        ],
+        [
+          "electronics",
+          4
+        ],
+        [
+          "home",
+          3
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E044",
+    "category": "joins",
+    "question": "Show seller item freight for 2018-01 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "freight"
+    ],
+    "expected_tables": [
+      "dim_seller",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT s.seller_id, SUM(i.freight_value) FROM fct_order_items i JOIN dim_seller s ON i.seller_id = s.seller_id WHERE i.is_valid AND i.purchase_month = '2018-01' GROUP BY s.seller_id ORDER BY s.seller_id",
+    "expected_result": {
+      "rows": [
+        [
+          "s1",
+          8.0
+        ],
+        [
+          "s2",
+          6.0
+        ],
+        [
+          "s3",
+          6.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E045",
+    "category": "joins",
+    "question": "Show person item revenue for 2018-01 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "historical_customer_value"
+    ],
+    "expected_tables": [
+      "fct_order_items",
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT o.customer_unique_id, SUM(i.item_price) FROM fct_order_items i JOIN fct_orders o ON i.order_id = o.order_id WHERE i.is_valid AND i.purchase_month = '2018-01' GROUP BY o.customer_unique_id ORDER BY o.customer_unique_id",
+    "expected_result": {
+      "rows": [
+        [
+          "u1",
+          10.0
+        ],
+        [
+          "u2",
+          50.0
+        ],
+        [
+          "u3",
+          30.0
+        ],
+        [
+          "u4",
+          90.0
+        ],
+        [
+          "u5",
+          50.0
+        ],
+        [
+          "u6",
+          130.0
+        ],
+        [
+          "u7",
+          70.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E046",
+    "category": "joins",
+    "question": "Show seller state revenue for 2018-02 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "dim_seller",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT s.seller_state, SUM(i.item_price) FROM fct_order_items i JOIN dim_seller s ON i.seller_id = s.seller_id WHERE i.is_valid AND i.purchase_month = '2018-02' GROUP BY s.seller_state ORDER BY s.seller_state",
+    "expected_result": {
+      "rows": [
+        [
+          "MG",
+          80.0
+        ],
+        [
+          "RJ",
+          50.0
+        ],
+        [
+          "SP",
+          85.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E047",
+    "category": "joins",
+    "question": "Show customer state item revenue for 2018-02 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items",
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT o.customer_state, SUM(i.item_price) FROM fct_order_items i JOIN fct_orders o ON i.order_id = o.order_id WHERE i.is_valid AND i.purchase_month = '2018-02' GROUP BY o.customer_state ORDER BY o.customer_state",
+    "expected_result": {
+      "rows": [
+        [
+          "MG",
+          80.0
+        ],
+        [
+          "RJ",
+          50.0
+        ],
+        [
+          "SP",
+          85.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E048",
+    "category": "joins",
+    "question": "Show category distinct order counts for 2018-02 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "dim_product",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT p.category, COUNT(DISTINCT i.order_id) FROM fct_order_items i JOIN dim_product p ON i.product_id = p.product_id WHERE i.is_valid AND i.purchase_month = '2018-02' GROUP BY p.category ORDER BY p.category",
+    "expected_result": {
+      "rows": [
+        [
+          "books",
+          3
+        ],
+        [
+          "electronics",
+          4
+        ],
+        [
+          "home",
+          3
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E049",
+    "category": "joins",
+    "question": "Show seller item freight for 2018-02 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "freight"
+    ],
+    "expected_tables": [
+      "dim_seller",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT s.seller_id, SUM(i.freight_value) FROM fct_order_items i JOIN dim_seller s ON i.seller_id = s.seller_id WHERE i.is_valid AND i.purchase_month = '2018-02' GROUP BY s.seller_id ORDER BY s.seller_id",
+    "expected_result": {
+      "rows": [
+        [
+          "s1",
+          8.0
+        ],
+        [
+          "s2",
+          6.0
+        ],
+        [
+          "s3",
+          6.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E050",
+    "category": "joins",
+    "question": "Show person item revenue for 2018-02 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "historical_customer_value"
+    ],
+    "expected_tables": [
+      "fct_order_items",
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT o.customer_unique_id, SUM(i.item_price) FROM fct_order_items i JOIN fct_orders o ON i.order_id = o.order_id WHERE i.is_valid AND i.purchase_month = '2018-02' GROUP BY o.customer_unique_id ORDER BY o.customer_unique_id",
+    "expected_result": {
+      "rows": [
+        [
+          "u1",
+          5.0
+        ],
+        [
+          "u2",
+          25.0
+        ],
+        [
+          "u3",
+          15.0
+        ],
+        [
+          "u4",
+          45.0
+        ],
+        [
+          "u5",
+          25.0
+        ],
+        [
+          "u6",
+          65.0
+        ],
+        [
+          "u7",
+          35.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E051",
+    "category": "joins",
+    "question": "Show seller state revenue for 2018-03 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "dim_seller",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT s.seller_state, SUM(i.item_price) FROM fct_order_items i JOIN dim_seller s ON i.seller_id = s.seller_id WHERE i.is_valid AND i.purchase_month = '2018-03' GROUP BY s.seller_state ORDER BY s.seller_state",
+    "expected_result": {
+      "rows": [
+        [
+          "MG",
+          128.0
+        ],
+        [
+          "RJ",
+          80.0
+        ],
+        [
+          "SP",
+          136.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E052",
+    "category": "joins",
+    "question": "Show customer state item revenue for 2018-03 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items",
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT o.customer_state, SUM(i.item_price) FROM fct_order_items i JOIN fct_orders o ON i.order_id = o.order_id WHERE i.is_valid AND i.purchase_month = '2018-03' GROUP BY o.customer_state ORDER BY o.customer_state",
+    "expected_result": {
+      "rows": [
+        [
+          "MG",
+          128.0
+        ],
+        [
+          "RJ",
+          80.0
+        ],
+        [
+          "SP",
+          136.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E053",
+    "category": "joins",
+    "question": "Show category distinct order counts for 2018-03 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "dim_product",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT p.category, COUNT(DISTINCT i.order_id) FROM fct_order_items i JOIN dim_product p ON i.product_id = p.product_id WHERE i.is_valid AND i.purchase_month = '2018-03' GROUP BY p.category ORDER BY p.category",
+    "expected_result": {
+      "rows": [
+        [
+          "books",
+          3
+        ],
+        [
+          "electronics",
+          4
+        ],
+        [
+          "home",
+          3
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E054",
+    "category": "joins",
+    "question": "Show seller item freight for 2018-03 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "freight"
+    ],
+    "expected_tables": [
+      "dim_seller",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT s.seller_id, SUM(i.freight_value) FROM fct_order_items i JOIN dim_seller s ON i.seller_id = s.seller_id WHERE i.is_valid AND i.purchase_month = '2018-03' GROUP BY s.seller_id ORDER BY s.seller_id",
+    "expected_result": {
+      "rows": [
+        [
+          "s1",
+          8.0
+        ],
+        [
+          "s2",
+          6.0
+        ],
+        [
+          "s3",
+          6.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E055",
+    "category": "joins",
+    "question": "Show person item revenue for 2018-03 using the correct join grain.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "historical_customer_value"
+    ],
+    "expected_tables": [
+      "fct_order_items",
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT o.customer_unique_id, SUM(i.item_price) FROM fct_order_items i JOIN fct_orders o ON i.order_id = o.order_id WHERE i.is_valid AND i.purchase_month = '2018-03' GROUP BY o.customer_unique_id ORDER BY o.customer_unique_id",
+    "expected_result": {
+      "rows": [
+        [
+          "u1",
+          8.0
+        ],
+        [
+          "u2",
+          40.0
+        ],
+        [
+          "u3",
+          24.0
+        ],
+        [
+          "u4",
+          72.0
+        ],
+        [
+          "u5",
+          40.0
+        ],
+        [
+          "u6",
+          104.0
+        ],
+        [
+          "u7",
+          56.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E056",
+    "category": "trends_comparisons",
+    "question": "Show monthly revenue across January through March 2018.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "mart_monthly_sales"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT purchase_month, revenue FROM mart_monthly_sales ORDER BY purchase_month",
+    "expected_result": {
+      "rows": [
+        [
+          "2018-01",
+          430.0
+        ],
+        [
+          "2018-02",
+          215.0
+        ],
+        [
+          "2018-03",
+          344.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E057",
+    "category": "trends_comparisons",
+    "question": "What was the percentage change in revenue from 2018-01 to 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "mart_monthly_sales"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT 100.0*(b.revenue-a.revenue)/NULLIF(a.revenue,0) FROM mart_monthly_sales a JOIN mart_monthly_sales b ON b.purchase_month = '2018-02' WHERE a.purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          -50.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E058",
+    "category": "trends_comparisons",
+    "question": "What was the percentage change in revenue from 2018-02 to 2018-03?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "mart_monthly_sales"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT 100.0*(b.revenue-a.revenue)/NULLIF(a.revenue,0) FROM mart_monthly_sales a JOIN mart_monthly_sales b ON b.purchase_month = '2018-03' WHERE a.purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          60.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E059",
+    "category": "trends_comparisons",
+    "question": "Show monthly orders across January through March 2018.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "mart_monthly_sales"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT purchase_month, orders FROM mart_monthly_sales ORDER BY purchase_month",
+    "expected_result": {
+      "rows": [
+        [
+          "2018-01",
+          7
+        ],
+        [
+          "2018-02",
+          7
+        ],
+        [
+          "2018-03",
+          7
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E060",
+    "category": "trends_comparisons",
+    "question": "What was the percentage change in orders from 2018-01 to 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "mart_monthly_sales"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT 100.0*(b.orders-a.orders)/NULLIF(a.orders,0) FROM mart_monthly_sales a JOIN mart_monthly_sales b ON b.purchase_month = '2018-02' WHERE a.purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          0.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E061",
+    "category": "trends_comparisons",
+    "question": "What was the percentage change in orders from 2018-02 to 2018-03?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "mart_monthly_sales"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT 100.0*(b.orders-a.orders)/NULLIF(a.orders,0) FROM mart_monthly_sales a JOIN mart_monthly_sales b ON b.purchase_month = '2018-03' WHERE a.purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          0.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E062",
+    "category": "trends_comparisons",
+    "question": "Show monthly AOV across January through March 2018.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "average_order_value"
+    ],
+    "expected_tables": [
+      "mart_monthly_sales"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT purchase_month, average_order_value FROM mart_monthly_sales ORDER BY purchase_month",
+    "expected_result": {
+      "rows": [
+        [
+          "2018-01",
+          61.428571
+        ],
+        [
+          "2018-02",
+          30.714286
+        ],
+        [
+          "2018-03",
+          49.142857
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E063",
+    "category": "trends_comparisons",
+    "question": "What was the percentage change in AOV from 2018-01 to 2018-02?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "average_order_value"
+    ],
+    "expected_tables": [
+      "mart_monthly_sales"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT 100.0*(b.average_order_value-a.average_order_value)/NULLIF(a.average_order_value,0) FROM mart_monthly_sales a JOIN mart_monthly_sales b ON b.purchase_month = '2018-02' WHERE a.purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          -50.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E064",
+    "category": "trends_comparisons",
+    "question": "What was the percentage change in AOV from 2018-02 to 2018-03?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "average_order_value"
+    ],
+    "expected_tables": [
+      "mart_monthly_sales"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT 100.0*(b.average_order_value-a.average_order_value)/NULLIF(a.average_order_value,0) FROM mart_monthly_sales a JOIN mart_monthly_sales b ON b.purchase_month = '2018-03' WHERE a.purchase_month = '2018-02'",
+    "expected_result": {
+      "rows": [
+        [
+          60.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E065",
+    "category": "trends_comparisons",
+    "question": "Show the monthly revenue trend for books.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "mart_category_performance"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT purchase_month, revenue FROM mart_category_performance WHERE category = 'books' ORDER BY purchase_month",
+    "expected_result": {
+      "rows": [
+        [
+          "2018-01",
+          120.0
+        ],
+        [
+          "2018-02",
+          60.0
+        ],
+        [
+          "2018-03",
+          96.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E066",
+    "category": "trends_comparisons",
+    "question": "Show the monthly revenue trend for electronics.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "mart_category_performance"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT purchase_month, revenue FROM mart_category_performance WHERE category = 'electronics' ORDER BY purchase_month",
+    "expected_result": {
+      "rows": [
+        [
+          "2018-01",
+          190.0
+        ],
+        [
+          "2018-02",
+          95.0
+        ],
+        [
+          "2018-03",
+          152.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E067",
+    "category": "trends_comparisons",
+    "question": "Show the monthly revenue trend for home.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "mart_category_performance"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT purchase_month, revenue FROM mart_category_performance WHERE category = 'home' ORDER BY purchase_month",
+    "expected_result": {
+      "rows": [
+        [
+          "2018-01",
+          120.0
+        ],
+        [
+          "2018-02",
+          60.0
+        ],
+        [
+          "2018-03",
+          96.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E068",
+    "category": "trends_comparisons",
+    "question": "Show monthly valid order counts for SP.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT purchase_month, COUNT(*) FROM fct_orders WHERE is_valid AND customer_state = 'SP' GROUP BY purchase_month ORDER BY purchase_month",
+    "expected_result": {
+      "rows": [
+        [
+          "2018-01",
+          3
+        ],
+        [
+          "2018-02",
+          3
+        ],
+        [
+          "2018-03",
+          3
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E069",
+    "category": "trends_comparisons",
+    "question": "Show monthly valid order counts for RJ.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT purchase_month, COUNT(*) FROM fct_orders WHERE is_valid AND customer_state = 'RJ' GROUP BY purchase_month ORDER BY purchase_month",
+    "expected_result": {
+      "rows": [
+        [
+          "2018-01",
+          2
+        ],
+        [
+          "2018-02",
+          2
+        ],
+        [
+          "2018-03",
+          2
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E070",
+    "category": "trends_comparisons",
+    "question": "Show monthly valid order counts for MG.",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT purchase_month, COUNT(*) FROM fct_orders WHERE is_valid AND customer_state = 'MG' GROUP BY purchase_month ORDER BY purchase_month",
+    "expected_result": {
+      "rows": [
+        [
+          "2018-01",
+          2
+        ],
+        [
+          "2018-02",
+          2
+        ],
+        [
+          "2018-03",
+          2
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E071",
+    "category": "metric_interpretation",
+    "question": "What is the delivered-order late rate, and which denominator applies?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "late_delivery_rate"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT 100.0*SUM(CASE WHEN is_late THEN 1 ELSE 0 END)/COUNT(*) FROM fct_orders WHERE is_delivered AND delivered_at IS NOT NULL AND estimated_at IS NOT NULL",
+    "expected_result": {
+      "rows": [
+        [
+          33.333333
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E072",
+    "category": "metric_interpretation",
+    "question": "What is the average review score per delivered order, excluding missing reviews?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "average_review_score"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT AVG(review_score) FROM fct_orders WHERE is_delivered AND review_score IS NOT NULL",
+    "expected_result": {
+      "rows": [
+        [
+          2.833333
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E073",
+    "category": "metric_interpretation",
+    "question": "What is repeat customer rate across all fixture months using person IDs?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "repeat_customer_rate"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT 100.0*SUM(CASE WHEN n >= 2 THEN 1 ELSE 0 END)/COUNT(*) FROM (SELECT customer_unique_id, COUNT(*) n FROM fct_orders WHERE is_valid GROUP BY customer_unique_id) counts",
+    "expected_result": {
+      "rows": [
+        [
+          100.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E074",
+    "category": "metric_interpretation",
+    "question": "What is repeat customer rate within January alone?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "repeat_customer_rate"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT 100.0*SUM(CASE WHEN n >= 2 THEN 1 ELSE 0 END)/COUNT(*) FROM (SELECT customer_unique_id, COUNT(*) n FROM fct_orders WHERE is_valid AND purchase_month = '2018-01' GROUP BY customer_unique_id) counts",
+    "expected_result": {
+      "rows": [
+        [
+          0.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E075",
+    "category": "metric_interpretation",
+    "question": "What is AOV for an empty April, and why is it undefined?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "average_order_value"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(revenue)/NULLIF(COUNT(*),0) FROM fct_orders WHERE is_valid AND purchase_month = '2018-04'",
+    "expected_result": {
+      "rows": [
+        [
+          null
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E076",
+    "category": "metric_interpretation",
+    "question": "How much January item value is excluded because orders were canceled?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT SUM(item_price) FROM fct_order_items WHERE NOT is_valid AND purchase_month = '2018-01'",
+    "expected_result": {
+      "rows": [
+        [
+          170.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E077",
+    "category": "metric_interpretation",
+    "question": "How much does January payment value exceed item revenue?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "payment_value"
+    ],
+    "expected_tables": [
+      "fct_order_items",
+      "fct_payments"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT (SELECT SUM(payment_value) FROM fct_payments WHERE is_valid AND purchase_month = '2018-01') - (SELECT SUM(item_price) FROM fct_order_items WHERE is_valid AND purchase_month = '2018-01')",
+    "expected_result": {
+      "rows": [
+        [
+          20.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E078",
+    "category": "metric_interpretation",
+    "question": "What is observed customer value by person through March, rather than predicted LTV?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "historical_customer_value"
+    ],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": "SELECT customer_unique_id, SUM(revenue) FROM fct_orders WHERE is_valid GROUP BY customer_unique_id ORDER BY customer_unique_id",
+    "expected_result": {
+      "rows": [
+        [
+          "u1",
+          23.0
+        ],
+        [
+          "u2",
+          115.0
+        ],
+        [
+          "u3",
+          69.0
+        ],
+        [
+          "u4",
+          207.0
+        ],
+        [
+          "u5",
+          115.0
+        ],
+        [
+          "u6",
+          299.0
+        ],
+        [
+          "u7",
+          161.0
+        ]
+      ],
+      "rounding_decimal_places": 6
+    },
+    "acceptance": "Return these ordered rows within 0.000001 numeric tolerance, cite metric version and query evidence."
+  },
+  {
+    "id": "E079",
+    "category": "metric_interpretation",
+    "question": "Can revenue be used as profit in this dataset?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "No cost or margin facts are available.",
+        "Revenue excludes freight and invalid orders; do not claim profit."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E080",
+    "category": "metric_interpretation",
+    "question": "Can we sum category order counts to obtain total orders?",
+    "difficulty": "medium",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_order_items",
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "describe_table",
+      "execute_query"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "An order may span categories.",
+        "Use distinct order_id across the requested scope, not the sum of category counts."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E081",
+    "category": "root_cause",
+    "question": "Why did revenue drop from January to February?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "execute_query",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Confirm complete months.",
+        "430 to 215 BRL, -50%; valid orders stay 7 and AOV halves.",
+        "Separate arithmetic drivers from unproven causes."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E082",
+    "category": "root_cause",
+    "question": "Which categories contributed to the January\u2013February decline?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "execute_query",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Calculate each category's February minus January revenue.",
+        "Contributions sum to -215 BRL.",
+        "Report contributions with query evidence."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E083",
+    "category": "root_cause",
+    "question": "Did order volume or order value drive the February decline?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "execute_query",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Order counts remain 7; AOV falls from 430/7 to 215/7.",
+        "Do not attribute the decline to lost orders."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E084",
+    "category": "root_cause",
+    "question": "Which customer states explain the February revenue decline?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "execute_query",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Compare state-level sums, using order-time customer state.",
+        "State differences reconcile to -215 BRL."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E085",
+    "category": "root_cause",
+    "question": "Which sellers account for the February change?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "execute_query",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Aggregate item revenue by seller and compare complete months.",
+        "No causal claim about seller behavior follows from arithmetic attribution."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E086",
+    "category": "root_cause",
+    "question": "Did higher cancellations explain the February decline?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "execute_query",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "One canceled order each month; seven valid orders each month.",
+        "Cancellations are excluded; no evidence of an increase in cancellation counts."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E087",
+    "category": "root_cause",
+    "question": "Revenue recovered in March; quantify the drivers.",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "execute_query",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "215 to 344 BRL, +60%; valid orders remain 7.",
+        "AOV rises by 60%; cite period comparisons."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E088",
+    "category": "root_cause",
+    "question": "Could split payments be inflating this revenue result?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "execute_query",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Order o102 has two items and two payment components.",
+        "Aggregate each child separately; January item revenue stays 430 BRL."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E089",
+    "category": "root_cause",
+    "question": "Are late deliveries proven to have caused February's revenue decline?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "execute_query",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Late rate is unchanged at 2/6 delivered orders per month.",
+        "Observational comparisons do not establish causality."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E090",
+    "category": "root_cause",
+    "question": "What caused March's end-of-month order collapse in the incomplete batch?",
+    "difficulty": "hard",
+    "dataset": "stale_pipeline",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "orders"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "get_metric",
+      "check_quality",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Batch complete_through is 2018-03-15 vs requested 2018-03-31.",
+        "Stop business inference and report incomplete pipeline evidence."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E091",
+    "category": "data_quality",
+    "question": "Why did repeated order keys appear after loading this batch?",
+    "difficulty": "medium",
+    "dataset": "duplicates",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "check_quality",
+      "get_tests"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Identify duplicate_key with row/header evidence.",
+        "Block affected analysis/publication; do not silently clean or claim a business change."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E092",
+    "category": "data_quality",
+    "question": "Can monthly revenue be trusted when purchase timestamps are missing?",
+    "difficulty": "medium",
+    "dataset": "missing_dates",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "check_quality",
+      "get_tests"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Identify missing_purchase_date with row/header evidence.",
+        "Block affected analysis/publication; do not silently clean or claim a business change."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E093",
+    "category": "data_quality",
+    "question": "How should an item referencing a nonexistent order be handled?",
+    "difficulty": "medium",
+    "dataset": "orphan_foreign_keys",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "check_quality",
+      "get_tests"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Identify orphan_foreign_key with row/header evidence.",
+        "Block affected analysis/publication; do not silently clean or claim a business change."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E094",
+    "category": "data_quality",
+    "question": "Can the negative item price be silently excluded from revenue?",
+    "difficulty": "medium",
+    "dataset": "invalid_prices",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "check_quality",
+      "get_tests"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Identify invalid_price with row/header evidence.",
+        "Block affected analysis/publication; do not silently clean or claim a business change."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E095",
+    "category": "data_quality",
+    "question": "The purchase timestamp header disappeared; can analysis continue?",
+    "difficulty": "medium",
+    "dataset": "schema_change",
+    "fixture_version": 1,
+    "expected_metrics": [
+      "revenue"
+    ],
+    "expected_tables": [
+      "fct_orders",
+      "fct_order_items"
+    ],
+    "expected_tools": [
+      "check_quality",
+      "get_tests"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Identify schema_change with row/header evidence.",
+        "Block affected analysis/publication; do not silently clean or claim a business change."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E096",
+    "category": "statistics",
+    "question": "Estimate a confidence interval for the fixture late-delivery proportion.",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "execute_query",
+      "statistics.calculate",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Use 6 late out of 18 delivered orders.",
+        "Wilson 95% interval is approximately 0.163 to 0.563 (16.3%\u201356.3%).",
+        "State small-sample and repeated-customer dependence limitations."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E097",
+    "category": "statistics",
+    "question": "Can three monthly revenue observations establish a reliable trend regression?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "execute_query",
+      "statistics.calculate",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Only three observations; insufficient support for robust forecasting.",
+        "Show descriptive changes and decline a reliable causal/predictive claim."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E098",
+    "category": "statistics",
+    "question": "Compare January and February mean order revenue with a paired analysis.",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "execute_query",
+      "statistics.calculate",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Seven recurring valid customers in each month; pair by customer_unique_id.",
+        "Mean change is -215/7 BRL.",
+        "Explain pairing, sample-size limits and that synthetic changes are not causal evidence."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E099",
+    "category": "statistics",
+    "question": "Does the fixture prove late deliveries lower review scores?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "execute_query",
+      "statistics.calculate",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Compare order-grain score and lateness only where review is present.",
+        "Report effect/uncertainty; correlation is not causation and rows repeat people."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  },
+  {
+    "id": "E100",
+    "category": "statistics",
+    "question": "Is customer u7 an outlier in observed customer value?",
+    "difficulty": "hard",
+    "dataset": "clean",
+    "fixture_version": 1,
+    "expected_metrics": [],
+    "expected_tables": [
+      "fct_orders"
+    ],
+    "expected_tools": [
+      "execute_query",
+      "statistics.calculate",
+      "get_evidence"
+    ],
+    "reference_sql": null,
+    "expected_result": {
+      "assertions": [
+        "Observed u7 value is 161 BRL; compare all seven valid customers.",
+        "Declare the outlier method and sample limits; do not infer fraud from a small sample."
+      ]
+    },
+    "acceptance": "Satisfy every assertion, cite evidence and avoid unsupported claims."
+  }
+]

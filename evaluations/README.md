@@ -1,0 +1,104 @@
+# Evaluation questions
+
+Source of truth: [cases.json](cases/cases.json). Numeric answers use synthetic fixture v1, not Olist facts.
+
+- **E001** (aggregation, clean): What is total revenue for all three fixture months?
+- **E002** (aggregation, clean): What is order count for all three fixture months?
+- **E003** (aggregation, clean): What is average order value for all three fixture months?
+- **E004** (aggregation, clean): What is total freight for all three fixture months?
+- **E005** (aggregation, clean): What is total payment value for all three fixture months?
+- **E006** (aggregation, clean): What is total revenue for 2018-01?
+- **E007** (aggregation, clean): What is order count for 2018-01?
+- **E008** (aggregation, clean): What is average order value for 2018-01?
+- **E009** (aggregation, clean): What is total freight for 2018-01?
+- **E010** (aggregation, clean): What is total payment value for 2018-01?
+- **E011** (aggregation, clean): What is total revenue for 2018-02?
+- **E012** (aggregation, clean): What is order count for 2018-02?
+- **E013** (aggregation, clean): What is average order value for 2018-02?
+- **E014** (aggregation, clean): What is total freight for 2018-02?
+- **E015** (aggregation, clean): What is total payment value for 2018-02?
+- **E016** (aggregation, clean): What is total revenue for 2018-03?
+- **E017** (aggregation, clean): What is order count for 2018-03?
+- **E018** (aggregation, clean): What is average order value for 2018-03?
+- **E019** (aggregation, clean): What is total freight for 2018-03?
+- **E020** (aggregation, clean): What is total payment value for 2018-03?
+- **E021** (filtering_grouping, clean): What was revenue for category books in 2018-01?
+- **E022** (filtering_grouping, clean): What was revenue for category books in 2018-02?
+- **E023** (filtering_grouping, clean): What was revenue for category electronics in 2018-01?
+- **E024** (filtering_grouping, clean): What was revenue for category electronics in 2018-02?
+- **E025** (filtering_grouping, clean): What was revenue for category home in 2018-01?
+- **E026** (filtering_grouping, clean): What was revenue for category home in 2018-02?
+- **E027** (filtering_grouping, clean): What was revenue for customer_state SP in 2018-01?
+- **E028** (filtering_grouping, clean): What was revenue for customer_state SP in 2018-02?
+- **E029** (filtering_grouping, clean): What was revenue for customer_state RJ in 2018-01?
+- **E030** (filtering_grouping, clean): What was revenue for customer_state RJ in 2018-02?
+- **E031** (filtering_grouping, clean): What was revenue for customer_state MG in 2018-01?
+- **E032** (filtering_grouping, clean): What was revenue for customer_state MG in 2018-02?
+- **E033** (filtering_grouping, clean): Which were the top five categories by revenue in 2018-01?
+- **E034** (filtering_grouping, clean): Which were the top five categories by revenue in 2018-02?
+- **E035** (filtering_grouping, clean): Which were the top five categories by revenue in 2018-03?
+- **E036** (filtering_grouping, clean): How many valid orders came from SP across the fixture period?
+- **E037** (filtering_grouping, clean): How many valid orders came from RJ across the fixture period?
+- **E038** (filtering_grouping, clean): How many valid orders came from MG across the fixture period?
+- **E039** (filtering_grouping, clean): How much revenue came from January orders worth at least BRL 50?
+- **E040** (filtering_grouping, clean): What is revenue in April 2018 when there are no orders?
+- **E041** (joins, clean): Show seller state revenue for 2018-01 using the correct join grain.
+- **E042** (joins, clean): Show customer state item revenue for 2018-01 using the correct join grain.
+- **E043** (joins, clean): Show category distinct order counts for 2018-01 using the correct join grain.
+- **E044** (joins, clean): Show seller item freight for 2018-01 using the correct join grain.
+- **E045** (joins, clean): Show person item revenue for 2018-01 using the correct join grain.
+- **E046** (joins, clean): Show seller state revenue for 2018-02 using the correct join grain.
+- **E047** (joins, clean): Show customer state item revenue for 2018-02 using the correct join grain.
+- **E048** (joins, clean): Show category distinct order counts for 2018-02 using the correct join grain.
+- **E049** (joins, clean): Show seller item freight for 2018-02 using the correct join grain.
+- **E050** (joins, clean): Show person item revenue for 2018-02 using the correct join grain.
+- **E051** (joins, clean): Show seller state revenue for 2018-03 using the correct join grain.
+- **E052** (joins, clean): Show customer state item revenue for 2018-03 using the correct join grain.
+- **E053** (joins, clean): Show category distinct order counts for 2018-03 using the correct join grain.
+- **E054** (joins, clean): Show seller item freight for 2018-03 using the correct join grain.
+- **E055** (joins, clean): Show person item revenue for 2018-03 using the correct join grain.
+- **E056** (trends_comparisons, clean): Show monthly revenue across January through March 2018.
+- **E057** (trends_comparisons, clean): What was the percentage change in revenue from 2018-01 to 2018-02?
+- **E058** (trends_comparisons, clean): What was the percentage change in revenue from 2018-02 to 2018-03?
+- **E059** (trends_comparisons, clean): Show monthly orders across January through March 2018.
+- **E060** (trends_comparisons, clean): What was the percentage change in orders from 2018-01 to 2018-02?
+- **E061** (trends_comparisons, clean): What was the percentage change in orders from 2018-02 to 2018-03?
+- **E062** (trends_comparisons, clean): Show monthly AOV across January through March 2018.
+- **E063** (trends_comparisons, clean): What was the percentage change in AOV from 2018-01 to 2018-02?
+- **E064** (trends_comparisons, clean): What was the percentage change in AOV from 2018-02 to 2018-03?
+- **E065** (trends_comparisons, clean): Show the monthly revenue trend for books.
+- **E066** (trends_comparisons, clean): Show the monthly revenue trend for electronics.
+- **E067** (trends_comparisons, clean): Show the monthly revenue trend for home.
+- **E068** (trends_comparisons, clean): Show monthly valid order counts for SP.
+- **E069** (trends_comparisons, clean): Show monthly valid order counts for RJ.
+- **E070** (trends_comparisons, clean): Show monthly valid order counts for MG.
+- **E071** (metric_interpretation, clean): What is the delivered-order late rate, and which denominator applies?
+- **E072** (metric_interpretation, clean): What is the average review score per delivered order, excluding missing reviews?
+- **E073** (metric_interpretation, clean): What is repeat customer rate across all fixture months using person IDs?
+- **E074** (metric_interpretation, clean): What is repeat customer rate within January alone?
+- **E075** (metric_interpretation, clean): What is AOV for an empty April, and why is it undefined?
+- **E076** (metric_interpretation, clean): How much January item value is excluded because orders were canceled?
+- **E077** (metric_interpretation, clean): How much does January payment value exceed item revenue?
+- **E078** (metric_interpretation, clean): What is observed customer value by person through March, rather than predicted LTV?
+- **E079** (metric_interpretation, clean): Can revenue be used as profit in this dataset?
+- **E080** (metric_interpretation, clean): Can we sum category order counts to obtain total orders?
+- **E081** (root_cause, clean): Why did revenue drop from January to February?
+- **E082** (root_cause, clean): Which categories contributed to the January–February decline?
+- **E083** (root_cause, clean): Did order volume or order value drive the February decline?
+- **E084** (root_cause, clean): Which customer states explain the February revenue decline?
+- **E085** (root_cause, clean): Which sellers account for the February change?
+- **E086** (root_cause, clean): Did higher cancellations explain the February decline?
+- **E087** (root_cause, clean): Revenue recovered in March; quantify the drivers.
+- **E088** (root_cause, clean): Could split payments be inflating this revenue result?
+- **E089** (root_cause, clean): Are late deliveries proven to have caused February's revenue decline?
+- **E090** (root_cause, stale_pipeline): What caused March's end-of-month order collapse in the incomplete batch?
+- **E091** (data_quality, duplicates): Why did repeated order keys appear after loading this batch?
+- **E092** (data_quality, missing_dates): Can monthly revenue be trusted when purchase timestamps are missing?
+- **E093** (data_quality, orphan_foreign_keys): How should an item referencing a nonexistent order be handled?
+- **E094** (data_quality, invalid_prices): Can the negative item price be silently excluded from revenue?
+- **E095** (data_quality, schema_change): The purchase timestamp header disappeared; can analysis continue?
+- **E096** (statistics, clean): Estimate a confidence interval for the fixture late-delivery proportion.
+- **E097** (statistics, clean): Can three monthly revenue observations establish a reliable trend regression?
+- **E098** (statistics, clean): Compare January and February mean order revenue with a paired analysis.
+- **E099** (statistics, clean): Does the fixture prove late deliveries lower review scores?
+- **E100** (statistics, clean): Is customer u7 an outlier in observed customer value?

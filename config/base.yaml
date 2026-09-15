@@ -1,0 +1,35 @@
+environment: base
+database:
+  app: {host: postgres, port: 5432, name: analystos_app, user: analystos_app}
+  warehouse: {host: postgres, port: 5432, name: demo_warehouse, user: analystos_reader}
+  loader: {user: analystos_loader}
+redis: {host: redis, port: 6379, database: 0}
+data:
+  currency: BRL
+  source_timestamp_semantics: naive_local_business_time
+  demo_as_of: '2018-08-31'
+  valid_order_statuses: [delivered, shipped, processing, invoiced, approved]
+agents:
+  maximum_workflow_seconds: 300
+  maximum_sql_queries: 15
+  maximum_critic_revisions: 2
+  maximum_concurrent_investigations: 4
+  maximum_tool_calls: 40
+  maximum_analysis_cost_usd: 1.00
+  maximum_llm_retries: 2
+sql:
+  dialect: postgres
+  allow_write_queries: false
+  maximum_rows: 10000
+  timeout_seconds: 30
+  maximum_joins: 6
+  maximum_subquery_depth: 4
+  maximum_explain_cost: 1000000
+  allowed_schemas: [marts]
+models:
+  # Working labels from the plan; verify API IDs and prices before enabling calls.
+  primary_role: terra
+  inexpensive_role: luna
+  evaluation_role: sol
+  api_calls_enabled: false
+

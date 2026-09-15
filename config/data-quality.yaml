@@ -1,0 +1,17 @@
+version: 1
+rules:
+  - {id: duplicate_key, scope: staging_keys, severity: error, condition: 'unique source keys; items and payments use composite keys', action: block_publish}
+  - {id: missing_purchase_date, scope: orders, severity: error, condition: 'purchase timestamp is not null', action: block_publish}
+  - {id: orphan_foreign_key, scope: relationships, severity: error, condition: 'orders.customer_id and item/payment/review order_id and item product/seller IDs resolve', action: block_publish}
+  - {id: invalid_price, scope: order_items, severity: error, condition: 'price >= 0 AND freight_value >= 0', action: block_publish}
+  - {id: schema_change, scope: raw_headers, severity: error, condition: 'required headers and types match pinned schema', action: block_ingestion}
+  - {id: stale_pipeline, scope: batch_manifest, severity: error, condition: 'successful batch complete_through >= requested period end date', action: block_business_inference}
+  - {id: invalid_status, scope: orders, severity: error, condition: 'status in created approved invoiced processing shipped delivered canceled unavailable', action: block_publish}
+  - {id: invalid_review_score, scope: reviews, severity: error, condition: 'non-null score is integer between 1 and 5', action: block_publish}
+  - {id: invalid_delivery_dates, scope: orders, severity: error, condition: 'delivered orders have delivery and estimated dates; purchase <= delivered', action: block_publish}
+  - {id: negative_payment, scope: payments, severity: error, condition: 'payment_value >= 0 and payment_installments >= 0', action: block_publish}
+  - {id: revenue_reconciliation, scope: marts, severity: error, condition: 'valid item revenue equals order revenue equals monthly revenue to 0.01 BRL', action: block_publish}
+  - {id: missing_translation, scope: products, severity: warning, condition: 'category translation exists or explicitly uses unknown', action: report_coverage}
+  - {id: missing_review, scope: orders, severity: warning, condition: 'report reviewed delivered orders / delivered orders', action: report_coverage}
+  - {id: distribution_change, scope: marts, severity: warning, condition: 'absolute period change > 30% after completeness checks', action: investigate_not_causal_claim}
+

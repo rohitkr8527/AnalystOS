@@ -1,0 +1,311 @@
+{
+  "version": 1,
+  "fixture_version": 1,
+  "policy": "Static baseline; changes require reviewed fixture/metric revision, never automatic regeneration in tests.",
+  "cases": [
+    {
+      "golden_id": "G01",
+      "case_id": "E001",
+      "expected_rows": [
+        [
+          989.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G02",
+      "case_id": "E002",
+      "expected_rows": [
+        [
+          21
+        ]
+      ]
+    },
+    {
+      "golden_id": "G03",
+      "case_id": "E003",
+      "expected_rows": [
+        [
+          47.095238
+        ]
+      ]
+    },
+    {
+      "golden_id": "G04",
+      "case_id": "E004",
+      "expected_rows": [
+        [
+          60.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G05",
+      "case_id": "E005",
+      "expected_rows": [
+        [
+          1049.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G06",
+      "case_id": "E006",
+      "expected_rows": [
+        [
+          430.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G07",
+      "case_id": "E011",
+      "expected_rows": [
+        [
+          215.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G08",
+      "case_id": "E016",
+      "expected_rows": [
+        [
+          344.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G09",
+      "case_id": "E021",
+      "expected_rows": [
+        [
+          120.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G10",
+      "case_id": "E027",
+      "expected_rows": [
+        [
+          170.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G11",
+      "case_id": "E033",
+      "expected_rows": [
+        [
+          "electronics",
+          190.0
+        ],
+        [
+          "books",
+          120.0
+        ],
+        [
+          "home",
+          120.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G12",
+      "case_id": "E040",
+      "expected_rows": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G13",
+      "case_id": "E041",
+      "expected_rows": [
+        [
+          "MG",
+          160.0
+        ],
+        [
+          "RJ",
+          100.0
+        ],
+        [
+          "SP",
+          170.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G14",
+      "case_id": "E042",
+      "expected_rows": [
+        [
+          "MG",
+          160.0
+        ],
+        [
+          "RJ",
+          100.0
+        ],
+        [
+          "SP",
+          170.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G15",
+      "case_id": "E043",
+      "expected_rows": [
+        [
+          "books",
+          3
+        ],
+        [
+          "electronics",
+          4
+        ],
+        [
+          "home",
+          3
+        ]
+      ]
+    },
+    {
+      "golden_id": "G16",
+      "case_id": "E045",
+      "expected_rows": [
+        [
+          "u1",
+          10.0
+        ],
+        [
+          "u2",
+          50.0
+        ],
+        [
+          "u3",
+          30.0
+        ],
+        [
+          "u4",
+          90.0
+        ],
+        [
+          "u5",
+          50.0
+        ],
+        [
+          "u6",
+          130.0
+        ],
+        [
+          "u7",
+          70.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G17",
+      "case_id": "E056",
+      "expected_rows": [
+        [
+          "2018-01",
+          430.0
+        ],
+        [
+          "2018-02",
+          215.0
+        ],
+        [
+          "2018-03",
+          344.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G18",
+      "case_id": "E057",
+      "expected_rows": [
+        [
+          -50.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G19",
+      "case_id": "E058",
+      "expected_rows": [
+        [
+          60.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G20",
+      "case_id": "E059",
+      "expected_rows": [
+        [
+          "2018-01",
+          7
+        ],
+        [
+          "2018-02",
+          7
+        ],
+        [
+          "2018-03",
+          7
+        ]
+      ]
+    },
+    {
+      "golden_id": "G21",
+      "case_id": "E060",
+      "expected_rows": [
+        [
+          0.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G22",
+      "case_id": "E071",
+      "expected_rows": [
+        [
+          33.333333
+        ]
+      ]
+    },
+    {
+      "golden_id": "G23",
+      "case_id": "E072",
+      "expected_rows": [
+        [
+          2.833333
+        ]
+      ]
+    },
+    {
+      "golden_id": "G24",
+      "case_id": "E073",
+      "expected_rows": [
+        [
+          100.0
+        ]
+      ]
+    },
+    {
+      "golden_id": "G25",
+      "case_id": "E074",
+      "expected_rows": [
+        [
+          0.0
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+version: 1
+valid_order_filter: is_valid = true
+metrics:
+  revenue:
+    description: Valid-order item value excluding freight, cancellations and unavailable orders.
+    model: fct_order_items
+    grain: order_item
+    expression: COALESCE(SUM(item_price), 0)
+    filter: is_valid = true
+    time_dimension: purchase_date
+    unit: BRL
+    empty_result: 0
+  orders:
+    description: Number of distinct valid orders.
+    model: fct_orders
+    grain: order
+    expression: COUNT(DISTINCT order_id)
+    filter: is_valid = true
+    time_dimension: purchase_date
+    unit: count
+    empty_result: 0
+  average_order_value:
+    description: Valid item revenue divided by valid orders at order grain.
+    model: fct_orders
+    grain: order
+    expression: SUM(revenue) / NULLIF(COUNT(DISTINCT order_id), 0)
+    filter: is_valid = true
+    time_dimension: purchase_date
+    unit: BRL_per_order
+    empty_result: null
+  average_review_score:
+    description: Mean latest resolved review score per delivered order; report review coverage.
+    model: fct_orders
+    grain: order
+    expression: AVG(review_score)
+    filter: is_delivered = true AND review_score IS NOT NULL
+    time_dimension: purchase_date
+    unit: score_1_to_5
+    empty_result: null
+  late_delivery_rate:
+    description: Percentage of eligible delivered orders arriving after their estimated timestamp.
+    model: fct_orders
+    grain: order
+    expression: 100.0 * SUM(CASE WHEN is_late THEN 1 ELSE 0 END) / NULLIF(COUNT(*), 0)
+    filter: is_delivered = true AND delivered_at IS NOT NULL AND estimated_at IS NOT NULL
+    time_dimension: purchase_date
+    unit: percent
+    empty_result: null
+  repeat_customer_rate:
+    description: Customers with >=2 valid orders / customers with >=1 in the same requested window.
+    model: fct_orders
+    grain: customer_unique_id_within_requested_window
+    expression: 100.0 * COUNT(CASE WHEN valid_orders >= 2 THEN 1 END) / NULLIF(COUNT(*), 0)
+    preaggregation: Filter fct_orders by requested period and is_valid, then group by customer_unique_id to count distinct order_id as valid_orders.
+    filter: is_valid = true
+    time_dimension: purchase_date
+    unit: percent
+    empty_result: null
+  freight:
+    description: Freight charges on valid order items, separate from revenue.
+    model: fct_order_items
+    grain: order_item
+    expression: COALESCE(SUM(freight_value), 0)
+    filter: is_valid = true
+    time_dimension: purchase_date
+    unit: BRL
+    empty_result: 0
+  payment_value:
+    description: Payment component value on valid orders; not a synonym for item revenue.
+    model: fct_payments
+    grain: payment_component
+    expression: COALESCE(SUM(payment_value), 0)
+    filter: is_valid = true
+    time_dimension: purchase_date
+    unit: BRL
+    empty_result: 0
+  historical_customer_value:
+    description: Cumulative observed valid item revenue per person through the requested cutoff; not predicted LTV or profit.
+    model: fct_orders
+    grain: customer_unique_id
+    expression: COALESCE(SUM(revenue), 0)
+    filter: is_valid = true
+    time_dimension: purchase_date
+    unit: BRL
+    empty_result: 0
+

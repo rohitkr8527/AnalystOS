@@ -1,0 +1,38 @@
+{
+  "duplicates": {
+    "expected_rule": "duplicate_key",
+    "affected_table": "orders",
+    "expected_severity": "error",
+    "expected_response": "Identify the defect, show evidence and block unsupported business conclusions."
+  },
+  "missing_dates": {
+    "expected_rule": "missing_purchase_date",
+    "affected_table": "orders",
+    "expected_severity": "error",
+    "expected_response": "Identify the defect, show evidence and block unsupported business conclusions."
+  },
+  "orphan_foreign_keys": {
+    "expected_rule": "orphan_foreign_key",
+    "affected_table": "order_items",
+    "expected_severity": "error",
+    "expected_response": "Identify the defect, show evidence and block unsupported business conclusions."
+  },
+  "invalid_prices": {
+    "expected_rule": "invalid_price",
+    "affected_table": "order_items",
+    "expected_severity": "error",
+    "expected_response": "Identify the defect, show evidence and block unsupported business conclusions."
+  },
+  "schema_change": {
+    "expected_rule": "schema_change",
+    "affected_table": "orders",
+    "expected_severity": "error",
+    "expected_response": "Identify the defect, show evidence and block unsupported business conclusions."
+  },
+  "stale_pipeline": {
+    "expected_rule": "stale_pipeline",
+    "affected_table": "orders",
+    "expected_severity": "error",
+    "expected_response": "Identify the defect, show evidence and block unsupported business conclusions."
+  }
+}

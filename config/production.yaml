@@ -1,0 +1,7 @@
+environment: production
+database:
+  app: {host: postgres}
+  warehouse: {host: postgres}
+models: {api_calls_enabled: false}
+security: {require_https: true, log_query_results: false}
+

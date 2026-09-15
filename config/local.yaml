@@ -1,0 +1,6 @@
+environment: local
+database:
+  app: {host: localhost, port: 5432}
+  warehouse: {host: localhost, port: 5432}
+redis: {host: localhost}
+
