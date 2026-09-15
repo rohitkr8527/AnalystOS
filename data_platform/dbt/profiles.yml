@@ -8,5 +8,5 @@ analystos:
       user: analystos_loader
       password: "{{ env_var('WAREHOUSE_LOADER_PASSWORD') }}"
       dbname: demo_warehouse
-      schema: analytics_dev
+      schema: dbt
       threads: 4

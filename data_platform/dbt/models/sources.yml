@@ -1,7 +1,7 @@
 version: 2
 sources:
 - name: olist
-  schema: raw
+  schema: "{{ env_var('ANALYSTOS_RAW_SCHEMA', 'raw') }}"
   tables:
   - name: customers
   - name: orders

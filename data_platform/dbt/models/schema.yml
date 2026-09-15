@@ -1,0 +1,33 @@
+version: 2
+models:
+  - {name: stg_customers, data_tests: [{key: {arguments: {columns: [customer_id]}}}]}
+  - {name: stg_orders, data_tests: [{key: {arguments: {columns: [order_id]}}}]}
+  - {name: stg_order_items, data_tests: [{key: {arguments: {columns: [order_id, order_item_id]}}}]}
+  - {name: stg_products, data_tests: [{key: {arguments: {columns: [product_id]}}}]}
+  - {name: stg_sellers, data_tests: [{key: {arguments: {columns: [seller_id]}}}]}
+  - {name: stg_payments, data_tests: [{key: {arguments: {columns: [order_id, payment_sequential]}}}]}
+  - {name: stg_reviews, data_tests: [{key: {arguments: {columns: [order_id]}}}]}
+  - {name: stg_geolocation, data_tests: [{key: {arguments: {columns: [geolocation_zip_code_prefix]}}}]}
+  - {name: stg_product_category_translation, data_tests: [{key: {arguments: {columns: [product_category_name]}}}]}
+  - {name: int_orders_enriched, data_tests: [{key: {arguments: {columns: [order_id]}}}]}
+  - {name: int_order_items_enriched, data_tests: [{key: {arguments: {columns: [order_id, order_item_id]}}}]}
+  - {name: int_customer_orders, data_tests: [{key: {arguments: {columns: [order_id]}}}]}
+  - {name: int_product_orders, data_tests: [{key: {arguments: {columns: [product_id, order_id]}}}]}
+  - {name: int_seller_performance, data_tests: [{key: {arguments: {columns: [seller_id, purchase_month]}}}]}
+  - {name: int_delivery_performance, data_tests: [{key: {arguments: {columns: [order_id]}}}]}
+  - {name: dim_customer, data_tests: [{key: {arguments: {columns: [customer_unique_id]}}}]}
+  - {name: dim_product, data_tests: [{key: {arguments: {columns: [product_id]}}}]}
+  - {name: dim_seller, data_tests: [{key: {arguments: {columns: [seller_id]}}}]}
+  - {name: dim_date, data_tests: [{key: {arguments: {columns: [date_day]}}}]}
+  - {name: fct_orders, data_tests: [{key: {arguments: {columns: [order_id]}}}]}
+  - {name: fct_order_items, data_tests: [{key: {arguments: {columns: [order_id, order_item_id]}}}]}
+  - {name: fct_payments, data_tests: [{key: {arguments: {columns: [order_id, payment_sequential]}}}]}
+  - {name: mart_daily_sales, data_tests: [{key: {arguments: {columns: [purchase_date]}}}]}
+  - {name: mart_monthly_sales, data_tests: [{key: {arguments: {columns: [purchase_month]}}}]}
+  - {name: mart_customer_metrics, data_tests: [{key: {arguments: {columns: [customer_unique_id]}}}]}
+  - {name: mart_customer_cohorts, data_tests: [{key: {arguments: {columns: [cohort_month, activity_month]}}}]}
+  - {name: mart_product_performance, data_tests: [{key: {arguments: {columns: [product_id, purchase_month]}}}]}
+  - {name: mart_category_performance, data_tests: [{key: {arguments: {columns: [category, purchase_month]}}}]}
+  - {name: mart_seller_performance, data_tests: [{key: {arguments: {columns: [seller_id, purchase_month]}}}]}
+  - {name: mart_delivery_performance, data_tests: [{key: {arguments: {columns: [purchase_month, customer_state]}}}]}
+  - {name: mart_review_metrics, data_tests: [{key: {arguments: {columns: [purchase_month, review_score]}}}]}

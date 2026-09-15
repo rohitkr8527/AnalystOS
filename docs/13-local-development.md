@@ -19,4 +19,4 @@ Shell scripts are checked in with LF endings. PostgreSQL's entrypoint sources th
 
 Use local.yaml for host processes and base.yaml for Compose services. The future config loader merges mappings recursively, replaces lists and rejects unknown keys. The current configuration files define that contract; no runtime configuration service is claimed.
 
-Later stages add API, worker, MCP, Dagster, web and telemetry services as implemented. `make demo-setup` and `make dev` from the long-term plan will be added when those flows actually work. This milestone does not claim to run an agent or populate the warehouse.
+Stage 1 provides the two Dagster assets in `data_platform.assets`; set `ANALYSTOS_DATASET` to select a snapshot. Later stages add API, worker, MCP, web and telemetry services as implemented. `make demo-setup` and `make dev` from the long-term plan will be added when those flows actually work. This milestone populates the warehouse but does not claim to run an agent.

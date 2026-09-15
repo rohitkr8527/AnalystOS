@@ -45,5 +45,4 @@ Compose configuration is validated. Docker Desktop's Linux daemon was stopped du
 
 No agents, production SQL executor, dbt model builds, AWS resources, external GitHub repository or paid model calls were created. Those implementations are beyond this pre-development checklist. Model API IDs and pricing remain deployment-time checks; the plan's model role labels are preserved with calls disabled.
 
-Next implementation milestone: Stage 1 — validated raw ingestion, dbt staging/intermediate/marts, warehouse tests and Dagster assets.
-
+The next implementation milestone is now Stage 2; Stage 1 delivered validated ingestion, dbt staging/intermediate/marts, warehouse tests and Dagster assets.

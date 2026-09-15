@@ -2,9 +2,11 @@
 
 An autonomous data engineering and analytics team for the Olist e-commerce warehouse.
 
-**Current milestone: point 39, pre-development foundations.** This repository defines the contracts that must exist before the first agent. Agent services, warehouse ingestion, dbt transformations and the web application are later milestones.
+**Current milestone: Stage 1 complete.** The repository includes validated CSV ingestion, PostgreSQL/dbt warehouse models and Dagster assets. Agent services and the web application are later stages.
 
 Start with the [completed checklist](docs/00-predevelopment-checklist.md), [scope](docs/01-product-overview.md), and [local development guide](docs/13-local-development.md).
+
+Follow the [implementation stages](docs/17-implementation-stages.md) for the remaining work, dependencies and completion gates.
 
 ## Verify the foundation
 
@@ -32,6 +34,15 @@ docker compose up -d --wait
 ```
 
 This starts one PostgreSQL server containing separate application and warehouse databases, plus Redis. Docker Desktop must be running. No cloud resources or paid model calls are made.
+
+## Build the warehouse
+
+```powershell
+uv run python -m data_platform.ingestion data/fixtures/clean
+uv run python -m data_platform.ingestion data/raw
+```
+
+Each run builds in isolated schemas and atomically publishes only after dbt succeeds. Set `ANALYSTOS_DATASET` and run `uv run dagster dev -m data_platform.assets` to use the two Dagster assets.
 
 ## Repository map
 

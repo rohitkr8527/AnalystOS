@@ -1,0 +1,21 @@
+{
+  "dataset_manifest": "data/olist-manifest.json",
+  "measured_at_utc": "2026-09-16T16:12:03Z",
+  "purchase_period": ["2016-09-04", "2018-10-17"],
+  "valid_orders": 98202,
+  "valid_item_revenue_brl": "13494400.74",
+  "valid_order_revenue_brl": "13494400.74",
+  "monthly_revenue_brl": "13494400.74",
+  "valid_freight_brl": "2241126.29",
+  "valid_payments_brl": "15738448.91",
+  "delivery_eligible_orders": 96470,
+  "late_deliveries": 7826,
+  "warnings": {"delivered_orders_missing_delivery_timestamp": 8},
+  "january_2018_top_categories": [
+    ["sports_leisure", "91368.43"],
+    ["computers_accessories", "81685.38"],
+    ["bed_bath_table", "76281.90"],
+    ["watches_gifts", "75552.24"],
+    ["health_beauty", "72190.49"]
+  ]
+}

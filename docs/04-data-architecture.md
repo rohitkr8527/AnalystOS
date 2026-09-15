@@ -18,9 +18,8 @@ Source timestamps have no time-zone offset. Preserve naive source business time;
 | geolocation | Postal observation | No unique zip key; repeated prefixes and coordinates are expected |
 | product_category_translation | Category translation | product_category_name |
 
-Raw landing tables intentionally have no business PK/FK/check constraints so anomalous source records remain inspectable. Loader must validate headers, parse types and record rejected rows with batch/line provenance; no silent lossy casts. Load a batch atomically, record source hashes, and publish only after required quality checks. Ingestion implementation belongs to Stage 1.
+Raw landing tables intentionally have no business PK/FK/check constraints so anomalous source records remain inspectable. The loader validates headers, parses types and records rejected rows with batch/line provenance; it performs no silent lossy casts. It loads each batch atomically, records source hashes, and publishes only after required quality checks.
 
 Stage keys are checked before downstream publication. For reviews select latest review_answer_timestamp then review_creation_date then review_id per order; exact duplicate rows may be collapsed, conflicting ties fail quality. Geolocation is aggregated to a unique prefix before joining, using median latitude/longitude; never join raw geolocation directly to facts.
 
 Customer IDs and seller/product IDs are pseudonymous source identifiers, not proof that records are non-sensitive. Free-text review fields and fine geolocation stay in raw and are excluded from agent-visible marts and logs.
-

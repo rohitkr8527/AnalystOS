@@ -3,7 +3,12 @@ name = "analystos"
 version = "0.1.0"
 description = "Evidence-backed analytics: data foundations before agents"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "dagster>=1.11,<2",
+    "dagster-dbt>=0.27,<1",
+    "dbt-postgres>=1.9,<2",
+    "psycopg[binary]>=3.2,<4",
+]
 
 [dependency-groups]
 dev = ["pytest>=8,<10", "PyYAML>=6,<7"]
@@ -11,7 +16,7 @@ dev = ["pytest>=8,<10", "PyYAML>=6,<7"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+markers = ["integration: requires the local PostgreSQL container"]
 
 [tool.uv]
 package = false
-

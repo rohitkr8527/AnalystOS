@@ -1,6 +1,6 @@
 # Warehouse and dbt design
 
-The machine-readable [model contracts](../data_platform/dbt/model-contracts.yaml) specify every model's layer, grain, keys and parents. [dbt project configuration](../data_platform/dbt/dbt_project.yml) fixes schema/materialization conventions; SQL model implementation is Stage 1.
+The machine-readable [model contracts](../data_platform/dbt/model-contracts.yaml) specify every model's layer, grain, keys and parents. [dbt project configuration](../data_platform/dbt/dbt_project.yml) fixes schema/materialization conventions; the Stage 1 SQL models implement all 31 contracts.
 
 ## Layer responsibilities
 
@@ -31,4 +31,3 @@ Reconcile sum(fct_order_items.item_price for valid orders) = sum(fct_orders.reve
 ## dbt execution and tests
 
 Order: raw sources → staging → intermediate → dimensions/facts → analytical marts. `dbt build` will perform transformation and quality checks as one Dagster asset job. Keys use unique/not_null or composite-key tests, FKs use relationships, status values use accepted_values, and custom tests enforce price/date/range/reconciliation rules in [quality policy](../config/data-quality.yaml).
-

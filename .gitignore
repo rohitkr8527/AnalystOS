@@ -16,7 +16,7 @@ data/downloads/
 data_platform/dbt/target/
 data_platform/dbt/logs/
 data_platform/dbt/dbt_packages/
+data_platform/dbt/.user.yml
 evaluations/reports/*
 !evaluations/reports/.gitkeep
 graphify-out/
-
